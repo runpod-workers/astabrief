@@ -1,0 +1,87 @@
+{
+  "title": "AstaBrief 8B",
+  "description": "Serve AstaBrief 8B on Runpod Serverless with vLLM. An 8B open model for cited research reports runs on a single mid-range GPU, a natural fit for Runpod Serverless or on-demand Pods. Allen AI releases draw researchers who want to inspect and fine-tune on open training data, which pulls fine-tuning workloads too. Day-one availability gives Runpod a quick template win while attention is high.",
+  "type": "serverless",
+  "category": "language",
+  "iconUrl": "https://www.runpod.io/favicon.ico",
+  "config": {
+    "runsOn": "GPU",
+    "containerDiskInGb": 60,
+    "gpuIds": "ADA_24",
+    "gpuCount": 1,
+    "allowedCudaVersions": [
+      "13.0",
+      "13.1",
+      "13.2"
+    ],
+    "presets": [
+      {
+        "name": "1x RTX 4090 bf16",
+        "defaults": {
+          "MODEL_NAME": "allenai/AstaBrief_8B",
+          "MAX_MODEL_LEN": "8192",
+          "TENSOR_PARALLEL_SIZE": "1",
+          "GPU_MEMORY_UTILIZATION": "0.90",
+          "MAX_CONCURRENCY": "30"
+        }
+      }
+    ],
+    "env": [
+      {
+        "key": "GPU_MEMORY_UTILIZATION",
+        "input": {
+          "name": "Gpu Memory Utilization",
+          "type": "string",
+          "description": "Fraction of VRAM vLLM may claim",
+          "default": "0.90",
+          "required": false,
+          "advanced": true
+        }
+      },
+      {
+        "key": "MAX_CONCURRENCY",
+        "input": {
+          "name": "Max Concurrency",
+          "type": "string",
+          "description": "Concurrent requests one worker accepts",
+          "default": "30",
+          "required": false,
+          "advanced": true
+        }
+      },
+      {
+        "key": "MAX_MODEL_LEN",
+        "input": {
+          "name": "Max Model Len",
+          "type": "string",
+          "description": "Maximum context length the worker advertises",
+          "default": "8192",
+          "required": false,
+          "advanced": false
+        }
+      },
+      {
+        "key": "MODEL_NAME",
+        "input": {
+          "name": "Model Name",
+          "type": "string",
+          "description": "Hugging Face repo id of the weights to serve",
+          "default": "allenai/AstaBrief_8B",
+          "required": true,
+          "advanced": false
+        }
+      },
+      {
+        "key": "TENSOR_PARALLEL_SIZE",
+        "input": {
+          "name": "Tensor Parallel Size",
+          "type": "string",
+          "description": "Number of GPUs to shard the model across",
+          "default": "1",
+          "required": false,
+          "advanced": false
+        }
+      }
+    ]
+  }
+}
