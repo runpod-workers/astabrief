@@ -1,6 +1,6 @@
 {
   "title": "AstaBrief 8B",
-  "description": "Serve AstaBrief 8B on Runpod Serverless with vLLM. An 8B open model for cited research reports runs on a single mid-range GPU, a natural fit for Runpod Serverless or on-demand Pods. Allen AI releases draw researchers who want to inspect and fine-tune on open training data, which pulls fine-tuning workloads too. Day-one availability gives Runpod a quick template win while attention is high.",
+  "description": "Serve AstaBrief 8B (Allen AI) on Runpod Serverless with vLLM.",
   "type": "serverless",
   "category": "language",
   "iconUrl": "https://www.runpod.io/favicon.ico",
