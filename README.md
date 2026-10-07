@@ -27,10 +27,10 @@ License: apache-2.0.
 
 ## Measured performance and cost
 
-| GPU | $/hr | Startup s | TTFT ms | tok/s | $/1M output tokens |
-|---|---|---|---|---|---|
-| 1x RTX 4090 bf16 | $0.69 | 242.3 | 216.1 | 56.2 | $3.41 |
-| 1x RTX 4090 fp8 | $0.69 | 349.3 | 210.3 | 77.6 | $2.47 |
+| GPU | Serverless $/hr | TTFT ms | tok/s | $/1M output tokens |
+|---|---|---|---|---|
+| 1x RTX 4090 bf16 (this recipe) | $1.10 | 216.1 | 56.2 | $5.44 |
+| 1x RTX 4090 fp8 | $1.10 | 210.3 | 77.6 | $3.94 |
 
 Cost per 1M output tokens is the hourly rate divided by measured throughput. It
 assumes one saturated worker and no idle time, so treat it as a floor.
