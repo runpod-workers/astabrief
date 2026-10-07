@@ -27,32 +27,16 @@ License: apache-2.0.
 
 ## Measured performance and cost
 
-| GPU | $/hr | Startup s | TTFT ms | tok/s | $/1M output tokens |
-|---|---|---|---|---|---|
-| 1x RTX 4090 bf16 | $0.69 | 242.3 | 216.1 | 56.2 | $3.41 |
-| 1x RTX 4090 fp8 | $0.69 | 349.3 | 210.3 | 77.6 | $2.47 |
+| GPU | Serverless $/hr | TTFT ms | tok/s | $/1M output tokens |
+|---|---|---|---|---|
+| 1x RTX 4090 bf16 (this recipe) | $1.10 | 216.1 | 56.2 | $5.44 |
+| 1x RTX 4090 fp8 | $1.10 | 210.3 | 77.6 | $3.94 |
 
 Cost per 1M output tokens is the hourly rate divided by measured throughput. It
 assumes one saturated worker and no idle time, so treat it as a floor.
 
 ## Deploy links
 
-- Deploy on Runpod: https://console.runpod.io/deploy?template=c1bout9ej5&utm_source=hub&utm_medium=product&utm_campaign=202610_activation_indie-ml-dev_allen-ai-astabrief-8b&utm_content=readme
-- Model page: https://www.runpod.io/models/allen-ai-astabrief-8b?utm_source=hub&utm_medium=product&utm_campaign=202610_activation_indie-ml-dev_allen-ai-astabrief-8b&utm_content=readme
-- Docs: https://docs.runpod.io/public-endpoints/models/allen-ai-astabrief-8b?utm_source=hub&utm_medium=product&utm_campaign=202610_activation_indie-ml-dev_allen-ai-astabrief-8b&utm_content=readme
+- Deploy on Runpod: https://console.runpod.io/hub/runpod-workers/astabrief?utm_source=hub&utm_medium=product&utm_campaign=202610_activation_indie-ml-dev_allen-ai-astabrief-8b&utm_content=readme
 
-Every link carries `utm_campaign=202610_activation_indie-ml-dev_allen-ai-astabrief-8b`. Keep it intact when you copy a link anywhere else.
-
-## Before merging this bundle
-
-Run the suite against a live endpoint:
-
-```bash
-node hub-test-suite.mjs --repo <owner>/<name> --prefix allen-ai-astabrief-8b- --create
-```
-
-## Fast path while this is in review
-
-```bash
-runpodctl serverless create --hub-id <vllm listing> --model-reference hf://allenai/AstaBrief_8B
-```
+The link carries `utm_campaign=202610_activation_indie-ml-dev_allen-ai-astabrief-8b`. Keep it intact when you copy a link anywhere else.
